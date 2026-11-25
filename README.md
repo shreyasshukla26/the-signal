@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# THE SIGNAL — Beyond What You See
+
+An unconventional, interactive professional identity experience designed around the thinking, leadership, and professional journey of Sonia Specialist.
+
+## Concept
+
+THE SIGNAL moves beyond the traditional portfolio and résumé format. Instead of simply presenting professional achievements, it explores how Sonia observes complexity, connects information, and creates clarity.
+
+The experience is built around three core principles:
+
+- **Observe** — Recognize patterns, gaps, and overlooked opportunities.
+- **Connect** — Bring together people, ideas, and business perspectives.
+- **Simplify** — Transform complexity into meaningful direction.
+
+## Key Features
+
+### Immersive Professional Identity
+A futuristic, single-page experience featuring dark aesthetics, orbital animations, expressive typography, and interactive storytelling.
+
+### Interactive Clarity Engine
+An interactive visualization that transforms scattered elements into an organized system, representing the transition from complexity to clarity.
+
+### Professional Journey
+An interactive exploration of Sonia's professional experience across marketing, consulting, product strategy, and business operations.
+
+### Functional Contact System
+A validated contact form connected to a PostgreSQL database through Next.js API routes.
+
+### Visitor Engagement Analytics
+A custom session-based analytics system that captures meaningful visitor interactions:
+
+- Page views
+- Section views
+- Professional experience clicks
+- Clarity Engine interactions
+- Estimated browsing duration
+- Successful contact submissions
+- LinkedIn clicks
+
+Analytics are stored in PostgreSQL and can be analyzed using SQL queries without requiring a separate administration interface.
+
+### Responsive Design
+Designed to support desktop, tablet, and mobile screen sizes.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js | Full-stack application framework |
+| React.js | User interface |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Styling and responsive layouts |
+| Framer Motion | Animations and interactions |
+| Lucide React | Iconography |
+| Neon PostgreSQL | Database |
+| Zod | Server-side input validation |
+| Vercel | Deployment platform |
+
+## Application Architecture
+
+The frontend communicates with Next.js Route Handlers, which validate incoming requests and store data in Neon PostgreSQL.
+
+Frontend → API Routes → Validation → PostgreSQL
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | /api/contact | Validate and store contact enquiries |
+| POST | /api/analytics | Record visitor engagement events |
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+`npm install`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the project root.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`DATABASE_URL=your_neon_database_connection_string`
 
-## Learn More
+### 3. Database setup
 
-To learn more about Next.js, take a look at the following resources:
+Execute the database schema provided in `database/schema.sql` using the Neon SQL Editor.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Start development server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`npm run dev`
 
-## Deploy on Vercel
+Open http://localhost:3000 in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. Production build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm run build`
+
+`npm run start`
+
+## Analytics and Privacy
+
+The analytics system uses randomly generated browser-session identifiers rather than collecting visitor names or email addresses.
+
+Contact information is stored separately when a visitor submits an enquiry.
+
+Browsing duration represents estimated visible-tab time, and session counts do not necessarily represent unique individuals.
+
+## Design Philosophy
+
+The visual identity combines an obsidian background, warm typography, orange accents, subtle motion, and interconnected visual elements.
+
+Every major interaction reinforces the central theme of transforming complexity into clarity.
+
+## Future Enhancements
+
+- Enhanced analytics reporting
+- Email notifications for contact enquiries
+- Persistent API rate limiting
+- Expanded accessibility and performance testing
+
+## Developer
+
+**Shreyas Shukla**
+
+Developed as part of a developer hiring challenge, demonstrating creative frontend development, full-stack integration, interactive storytelling, and meaningful visitor engagement tracking.
+
+---
+
+**THE SIGNAL — Observe. Connect. Simplify.**

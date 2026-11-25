@@ -1,26 +1,145 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  --background: #090a0c;
+  --foreground: #f4f1eb;
+  --accent: #ff914d;
+  --muted: #a1a1aa;
+  --surface: #131518;
+  --border: #27272a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  background-color: #090a0c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  background-color: #090a0c;
+  color: #f4f1eb;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  background-color: #090a0c;
+  color: #f4f1eb;
+}
+
+::selection {
+  background-color: #ff914d;
+  color: #090a0c;
+}
+
+/* Main background */
+
+.signal-bg {
+  background:
+    radial-gradient(
+      ellipse at 80% 12%,
+      rgba(255, 145, 77, 0.09),
+      transparent 30%
+    ),
+    #090a0c;
+  color: #f4f1eb;
+}
+
+/* Background grid */
+
+.signal-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+}
+
+/* Glow effect */
+
+.orange-glow {
+  box-shadow:
+    0 0 50px rgba(255, 145, 77, 0.15),
+    inset 0 0 30px rgba(255, 145, 77, 0.06);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.45);
+  color: transparent;
+}
+
+/* Navigation */
+
+nav {
+  background-color: rgba(9, 10, 12, 0.9);
+  color: #f4f1eb;
+  backdrop-filter: blur(20px);
+}
+
+/* Interaction */
+
+button {
+  cursor: pointer;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #ff914d;
+  outline-offset: 5px;
+}
+
+/* Custom scrollbar */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #363636;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff914d;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
